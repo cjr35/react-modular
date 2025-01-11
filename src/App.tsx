@@ -1,13 +1,13 @@
-import './App.scss'
-import Knob from './components/controls/knob/Knob'
+import './App.scss';
+import Knob from './components/controls/knob/Knob';
 
 function App() {
   return (
     <div>
       <Knob />
       <Knob resetToLeft size='large' />
-    </div >
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

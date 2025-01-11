@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 $knob-color: #464646;
 
 body:has(.dragging) {
@@ -23,7 +23,7 @@ div.knob {
 
   margin: 8px;
   box-shadow: 0 0 5px 1px $knob-color,
-  inset 0 0 5px 1px color.scale($color: $knob-color, $lightness: 15%);
+    inset 0 0 5px 1px color.scale($color: $knob-color, $lightness: 15%);
   border-radius: 100%;
   width: var(--knob-size);
   aspect-ratio: 1;
@@ -44,7 +44,7 @@ div.knob {
     cursor: var(--hover-cursor);
   }
 
-  >div {
+  > div {
     border-radius: 100%;
     width: 100%;
     aspect-ratio: 1;
@@ -53,8 +53,7 @@ div.knob {
     display: grid;
     justify-items: center;
 
-
-    >div {
+    > div {
       margin-top: calc(var(--knob-size) * -0.15);
       box-shadow: 0 0 6px 1px color.scale($color: $knob-color, $lightness: -30%);
       border-radius: 4px;
