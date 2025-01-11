@@ -1,10 +1,6 @@
 @use 'sass:color';
 $knob-color: #464646;
 
-body:has(.dragging) {
-  --hover-cursor: grabbing;
-}
-
 body:not(:has(.dragging)) {
   --hover-cursor: grab;
 }
@@ -27,7 +23,6 @@ div.knob-root {
   }
 
   > .knob-edge {
-    margin: 8px;
     box-shadow: 0 2px 5px 0 color.scale($color: $knob-color, $lightness: 15%),
       inset 0 0 5px 1px color.scale($color: $knob-color, $lightness: 15%);
     border-radius: 100%;

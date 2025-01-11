@@ -1,5 +1,6 @@
 import './App.scss';
 import Knob from './components/controls/knob/Knob';
+import Fader from './components/controls/fader/Fader';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Knob size='small' />
       <Knob />
       <Knob size='large' />
+      <Fader />
     </div>
   );
 }
