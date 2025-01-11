@@ -1,0 +1,64 @@
+@use "sass:color";
+$knob-color: #464646;
+
+body:has(.dragging) {
+  --hover-cursor: grabbing;
+}
+
+body:not(:has(.dragging)) {
+  --hover-cursor: grab;
+}
+
+div.knob {
+  &.small {
+    --knob-size: 25px;
+  }
+
+  // &.medium or no size class
+  --knob-size: 50px;
+
+  &.large {
+    --knob-size: 100px;
+  }
+
+  margin: 8px;
+  box-shadow: 0 0 5px 1px $knob-color,
+  inset 0 0 5px 1px color.scale($color: $knob-color, $lightness: 15%);
+  border-radius: 100%;
+  width: var(--knob-size);
+  aspect-ratio: 1;
+  padding: calc(var(--knob-size) * 0.1);
+  background-color: color.scale($color: $knob-color, $lightness: -30%);
+
+  display: grid;
+  place-items: center;
+
+  &,
+  * {
+    user-select: none;
+  }
+
+  &:hover {
+    cursor: var(--hover-cursor);
+  }
+
+  >div {
+    border-radius: 100%;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: $knob-color;
+
+    display: grid;
+    justify-items: center;
+
+
+    >div {
+      margin-top: calc(var(--knob-size) * -0.15);
+      box-shadow: 0 0 6px 1px color.scale($color: $knob-color, $lightness: -30%);
+      border-radius: 4px;
+      width: 8px;
+      height: calc(var(--knob-size) * 0.5);
+      background-color: #fff2d9;
+    }
+  }
+}
