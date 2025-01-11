@@ -55,7 +55,7 @@ function Knob(props: IKnobProps) {
       updateTurnState({ fraction: turnState.fraction + yOffset });
     };
     const endTurn = () => {
-      updateTurnState({ turning: false });
+      updateTurnState({ origin: { x: NaN, y: NaN }, turning: false });
     };
     if (turnState.turning) {
       window.addEventListener('mousemove', tryTurn);
@@ -87,15 +87,23 @@ function Knob(props: IKnobProps) {
 
   return (
     <div
-      className={`knob ${props.size} ${turnState.turning ? 'dragging' : ''}`}
-      onMouseDown={beginTurn}
-      onDoubleClick={resetRotation}
+      className={`knob-root ${props.size ?? 'medium'}${
+        turnState.turning ? ' dragging' : ''
+      }`}
     >
-      <div style={{ transform: `rotate(${turnAngle}deg)` }}>
-        <div />
+      <div
+        className='knob-edge'
+        onMouseDown={beginTurn}
+        onDoubleClick={resetRotation}
+      >
+        <div
+          className='knob-top'
+          style={{ transform: `rotate(${turnAngle}deg)` }}
+        >
+          <div className='knob-tick' />
+        </div>
       </div>
     </div>
   );
 }
-
 export default Knob;

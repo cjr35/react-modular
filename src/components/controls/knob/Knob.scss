@@ -9,7 +9,7 @@ body:not(:has(.dragging)) {
   --hover-cursor: grab;
 }
 
-div.knob {
+div.knob-root {
   &.small {
     --knob-size: 25px;
   }
@@ -21,45 +21,48 @@ div.knob {
     --knob-size: 100px;
   }
 
-  margin: 8px;
-  box-shadow: 0 2px 5px 0 color.scale($color: $knob-color, $lightness: 15%),
-    inset 0 0 5px 1px color.scale($color: $knob-color, $lightness: 15%);
-  border-radius: 100%;
-  width: var(--knob-size);
-  aspect-ratio: 1;
-  padding: calc(var(--knob-size) * 0.1);
-  background-color: color.scale($color: $knob-color, $lightness: -30%);
-
-  display: grid;
-  place-items: center;
-
   &,
   * {
     user-select: none;
   }
 
-  &:hover {
-    cursor: var(--hover-cursor);
-  }
-
-  > div {
+  > .knob-edge {
+    margin: 8px;
+    box-shadow: 0 2px 5px 0 color.scale($color: $knob-color, $lightness: 15%),
+      inset 0 0 5px 1px color.scale($color: $knob-color, $lightness: 15%);
     border-radius: 100%;
-    width: 100%;
+    width: var(--knob-size);
     aspect-ratio: 1;
-    background-color: $knob-color;
+    padding: calc(var(--knob-size) * 0.1);
+    background-color: color.scale($color: $knob-color, $lightness: -30%);
+
+    &:hover {
+      cursor: var(--hover-cursor);
+    }
 
     display: grid;
-    justify-items: center;
+    place-items: center;
 
-    transition: transform 0.1s;
+    > .knob-top {
+      border-radius: 100%;
+      width: 100%;
+      aspect-ratio: 1;
+      background-color: $knob-color;
 
-    > div {
-      margin-top: calc(var(--knob-size) * -0.15);
-      box-shadow: 0 0 6px 1px color.scale($color: $knob-color, $lightness: -30%);
-      border-radius: 4px;
-      width: 8px;
-      height: calc(var(--knob-size) * 0.5);
-      background-color: #fff2d9;
+      display: grid;
+      justify-items: center;
+
+      transition: transform 0.1s;
+
+      > .knob-tick {
+        margin-top: calc(var(--knob-size) * -0.15);
+        box-shadow: 0 0 6px 1px
+          color.scale($color: $knob-color, $lightness: -30%);
+        border-radius: 4px;
+        width: 8px;
+        height: calc(var(--knob-size) * 0.5);
+        background-color: #fff2d9;
+      }
     }
   }
 }
