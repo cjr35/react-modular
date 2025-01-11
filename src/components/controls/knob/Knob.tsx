@@ -90,9 +90,8 @@ function Knob(props: IKnobProps) {
       className={`knob ${props.size} ${turnState.turning ? 'dragging' : ''}`}
       onMouseDown={beginTurn}
       onDoubleClick={resetRotation}
-      style={{ transform: `rotate(${turnAngle}deg)` }}
     >
-      <div>
+      <div style={{ transform: `rotate(${turnAngle}deg)` }}>
         <div />
       </div>
     </div>

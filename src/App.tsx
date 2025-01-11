@@ -4,8 +4,9 @@ import Knob from './components/controls/knob/Knob';
 function App() {
   return (
     <div>
+      <Knob size='small' />
       <Knob />
-      <Knob resetToLeft size='large' />
+      <Knob size='large' />
     </div>
   );
 }

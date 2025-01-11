@@ -22,7 +22,7 @@ div.knob {
   }
 
   margin: 8px;
-  box-shadow: 0 0 5px 1px $knob-color,
+  box-shadow: 0 2px 5px 0 color.scale($color: $knob-color, $lightness: 15%),
     inset 0 0 5px 1px color.scale($color: $knob-color, $lightness: 15%);
   border-radius: 100%;
   width: var(--knob-size);
@@ -32,8 +32,6 @@ div.knob {
 
   display: grid;
   place-items: center;
-
-  transition: transform 0.1s;
 
   &,
   * {
@@ -52,6 +50,8 @@ div.knob {
 
     display: grid;
     justify-items: center;
+
+    transition: transform 0.1s;
 
     > div {
       margin-top: calc(var(--knob-size) * -0.15);
