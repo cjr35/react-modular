@@ -1,14 +1,51 @@
 @use 'sass:color';
 $fader-size: 100px;
 
+$track-long-side: $fader-size;
+$track-short-side: $fader-size * 0.1;
+$knob-edge-long-side: $fader-size * 0.3;
+$knob-edge-short-side: 200%;
+$tick-long-side: 130%;
+$tick-short-side: 4px;
+
+.fader-root.horizontal {
+  > .fader-track {
+    height: $track-short-side;
+    width: $track-long-side;
+    > .fader-knob-edge {
+      border-radius: 25% / 75%;
+      height: $knob-edge-short-side;
+      width: $knob-edge-long-side;
+      > .fader-knob-top > .fader-tick {
+        height: $tick-long-side;
+        width: $tick-short-side;
+      }
+    }
+  }
+}
+
+.fader-root.vertical {
+  > .fader-track {
+    height: $track-long-side;
+    width: $track-short-side;
+    > .fader-knob-edge {
+      border-radius: 75% / 25%;
+      height: $knob-edge-long-side;
+      width: $knob-edge-short-side;
+      > .fader-knob-top > .fader-tick {
+        height: $tick-short-side;
+        width: $tick-long-side;
+      }
+    }
+  }
+}
+
 .fader-root {
   padding: $fader-size * 0.1;
 
   > .fader-track {
     box-shadow: inset 0 0 5px 0 silver;
     border-radius: 2px;
-    height: $fader-size * 0.1;
-    width: $fader-size;
     background-color: black;
 
     display: grid;
@@ -17,10 +54,6 @@ $fader-size: 100px;
     > .fader-knob-edge {
       box-shadow: 0 2px 5px 0 color.scale($color: #464646, $lightness: 15%),
         inset 0 0 2px 0px color.scale($color: #464646, $lightness: 15%);
-      border-radius: 25% / 75%;
-      height: 200%;
-      width: $fader-size * 0.3;
-
       background-color: color.scale($color: #464646, $lightness: -30%);
 
       display: grid;
@@ -38,8 +71,6 @@ $fader-size: 100px;
         > .fader-tick {
           box-shadow: 0 0 6px 1px color.scale($color: #464646, $lightness: -30%);
           border-radius: 2px;
-          height: 130%;
-          width: 4px;
           background-color: #fff2d9;
         }
       }
