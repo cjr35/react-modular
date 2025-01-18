@@ -47,7 +47,7 @@ div.knob-root {
       display: grid;
       justify-items: center;
 
-      transition: transform 0.1s;
+      transition: rotate 0.1s;
 
       > .knob-tick {
         margin-top: calc(var(--knob-size) * -0.15);

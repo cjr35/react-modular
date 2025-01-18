@@ -8,6 +8,7 @@ function App() {
       <Knob size='small' />
       <Knob />
       <Knob size='large' />
+      <Fader horizontal />
       <Fader />
     </div>
   );

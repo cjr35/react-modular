@@ -10,11 +10,11 @@ const minRotation = -150;
 const rotationWidth = 300;
 
 function Knob(props: IKnobProps) {
-  const [turning, turnPosition, beginTurn, resetRotation] = useDragControl(
+  const [turning, turnValue, beginTurn, resetRotation] = useDragControl(
     true,
     props.resetToCenter
   );
-  const turnAngle = rotationWidth * turnPosition + minRotation;
+  const turnAngle = rotationWidth * turnValue + minRotation;
 
   return (
     <div
@@ -29,7 +29,9 @@ function Knob(props: IKnobProps) {
       >
         <div
           className='knob-top'
-          style={{ transform: `rotate(${turnAngle}deg)` }}
+          // By applying the rotation here, we can be sure not to move the
+          // shadow of the knob inappropriately.
+          style={{ rotate: `${turnAngle}deg` }}
         >
           <div className='knob-tick' />
         </div>

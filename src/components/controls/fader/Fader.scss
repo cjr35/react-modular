@@ -1,4 +1,10 @@
 @use 'sass:color';
+
+body:not(:has(.dragging)) {
+  --hover-cursor: grab;
+}
+
+// matches explicit value in tsx
 $fader-size: 100px;
 
 $track-long-side: $fader-size;
@@ -40,7 +46,7 @@ $tick-short-side: 4px;
   }
 }
 
-.fader-root {
+div.fader-root {
   padding: $fader-size * 0.1;
 
   > .fader-track {
@@ -51,6 +57,11 @@ $tick-short-side: 4px;
     display: grid;
     place-items: center;
 
+    &,
+    * {
+      user-select: none;
+    }
+
     > .fader-knob-edge {
       box-shadow: 0 2px 5px 0 color.scale($color: #464646, $lightness: 15%),
         inset 0 0 2px 0px color.scale($color: #464646, $lightness: 15%);
@@ -58,6 +69,12 @@ $tick-short-side: 4px;
 
       display: grid;
       place-items: center;
+
+      transition: translate 0.1s;
+
+      &:hover {
+        cursor: var(--hover-cursor);
+      }
 
       > .fader-knob-top {
         border-radius: inherit;

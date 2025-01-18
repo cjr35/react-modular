@@ -56,7 +56,12 @@ export function useDragControl(
         e = event.clientX;
         o = state.dragOrigin.x;
       }
-      const offset = (e - o) / -100;
+      let scale = 100;
+      if (vertical) {
+        // account for y increasing further down the page
+        scale *= -1;
+      }
+      const offset = (e - o) / scale;
       updateState({ controlValue: state.controlValue + offset });
     };
     const endDrag = () => {
@@ -87,6 +92,8 @@ export function useDragControl(
   const reset = (): void => {
     updateState({ controlValue: resetToCenter ? 0.5 : 0 });
   };
+  // reset on first load
+  useEffect(reset, []);
 
   return [state.dragging, state.controlValue, beginDrag, reset];
 }
