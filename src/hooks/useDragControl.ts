@@ -38,7 +38,12 @@ function reducer(
 export function useDragControl(
   vertical: boolean = true,
   resetToCenter: boolean = true
-) {
+): [
+  boolean,
+  number,
+  (event: React.MouseEvent<HTMLElement, MouseEvent>) => void,
+  () => void
+] {
   const [state, updateState] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -83,5 +88,5 @@ export function useDragControl(
     updateState({ controlValue: resetToCenter ? 0.5 : 0 });
   };
 
-  return [state.dragging, beginDrag, reset];
+  return [state.dragging, state.controlValue, beginDrag, reset];
 }
