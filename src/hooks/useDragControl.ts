@@ -83,6 +83,9 @@ export function useDragControl(
   const beginDrag = (
     event: React.MouseEvent<HTMLElement, MouseEvent>
   ): void => {
+    if (event.button !== 0) {
+      return;
+    }
     updateState({
       dragOrigin: { x: event.clientX, y: event.clientY },
       dragging: true,

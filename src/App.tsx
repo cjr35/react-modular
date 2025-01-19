@@ -9,9 +9,9 @@ function App() {
       <Knob size='small' />
       <Knob />
       <Knob size='large' />
-      <Fader horizontal />
-      <Fader />
       <Jack />
+      <Fader />
+      <Fader horizontal />
     </div>
   );
 }
