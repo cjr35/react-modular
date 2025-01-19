@@ -1,0 +1,38 @@
+div.jack-root {
+  &,
+  * {
+    user-select: none;
+  }
+  > .jack-background {
+    border-radius: 5px;
+    width: 30px;
+    background-color: #464646;
+    padding: 4px;
+
+    display: flex;
+    flex-direction: column;
+    > .jack-label {
+      color: #fff2d9;
+      font-size: 10px;
+    }
+    > .jack-edge {
+      box-shadow: 0 0 5px 0 #464646;
+      width: calc(100% - 4px);
+      aspect-ratio: 1;
+      border-radius: 100%;
+      border: 2px outset rgb(226, 226, 226);
+      background-color: silver;
+
+      display: grid;
+      place-items: center;
+      > .jack-middle {
+        box-shadow: 0 0 5px 0 black;
+        border: 2px ridge silver;
+        width: 50%;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        background-color: black;
+      }
+    }
+  }
+}
