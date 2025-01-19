@@ -26,9 +26,9 @@ div.jack-root {
       display: grid;
       place-items: center;
       > .jack-middle {
-        box-shadow: 0 0 5px 0 black;
+        box-shadow: 0 0 5px 0 black, inset 0 0 1px 0 silver;
         border: 2px ridge silver;
-        width: 50%;
+        width: 55%;
         aspect-ratio: 1;
         border-radius: 100%;
         background-color: black;
