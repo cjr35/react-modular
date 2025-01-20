@@ -1,4 +1,9 @@
 div.jack-root {
+  --label-color: #464646;
+  &.output {
+    --label-color: #fff2d9;
+    --background-color: #464646;
+  }
   &,
   * {
     user-select: none;
@@ -6,17 +11,20 @@ div.jack-root {
   > .jack-background {
     border-radius: 5px;
     width: 30px;
-    background-color: #464646;
-    padding: 4px;
+    background-color: var(--background-color);
+    padding: 5px;
 
     display: flex;
     flex-direction: column;
+    gap: 5px;
     > .jack-label {
-      color: #fff2d9;
+      color: var(--label-color);
       font-size: 10px;
+      line-height: 1em;
+      font-weight: bold;
     }
     > .jack-edge {
-      box-shadow: 0 0 5px 0 #464646;
+      box-shadow: 0 0 5px 0 black;
       width: calc(100% - 4px);
       aspect-ratio: 1;
       border-radius: 100%;

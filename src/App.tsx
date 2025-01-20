@@ -9,7 +9,8 @@ function App() {
       <Knob size='small' />
       <Knob />
       <Knob size='large' />
-      <Jack />
+      <Jack label='in' />
+      <Jack output label='out' />
       <Fader />
       <Fader horizontal />
     </div>

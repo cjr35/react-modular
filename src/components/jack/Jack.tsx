@@ -1,10 +1,16 @@
 import './Jack.scss';
 
-function Jack() {
+function Jack(props: { output?: boolean; label?: string }) {
+  const labelIfPresent = () => {
+    if (!props.label) {
+      return;
+    }
+    return <span className='jack-label'>{props.label.toUpperCase()}</span>;
+  };
   return (
-    <div className='jack-root'>
+    <div className={`jack-root${props.output ? ' output' : ''}`}>
       <div className='jack-background'>
-        <span className='jack-label'>JACK</span>
+        {labelIfPresent()}
         <div className='jack-edge'>
           <div className='jack-middle'></div>
         </div>
